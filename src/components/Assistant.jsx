@@ -67,10 +67,12 @@ const Assistant = () => {
       });
 
       const chat = model.startChat({
-        history: messages.map(m => ({
-          role: m.role === 'bot' ? 'model' : 'user',
-          parts: [{ text: m.text }],
-        })),
+        history: messages
+          .filter((m, i) => i !== 0) // Gemini requires history to start with a 'user' message
+          .map(m => ({
+            role: m.role === 'bot' ? 'model' : 'user',
+            parts: [{ text: m.text }],
+          })),
       });
 
       const result = await chat.sendMessage(input);
