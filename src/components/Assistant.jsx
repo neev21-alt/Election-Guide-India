@@ -82,7 +82,7 @@ const Assistant = () => {
       setMessages(prev => [...prev, { role: 'bot', text }]);
     } catch (error) {
       console.error("Gemini Error:", error);
-      setMessages(prev => [...prev, { role: 'bot', text: "I encountered an error connecting to the Gemini API." }]);
+      setMessages(prev => [...prev, { role: 'bot', text: `Error: ${error.message || "Failed to connect to Gemini API."}` }]);
     } finally {
       setIsTyping(false);
     }
