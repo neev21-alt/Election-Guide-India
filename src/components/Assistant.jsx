@@ -8,7 +8,7 @@ const Assistant = () => {
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [apiKey, setApiKey] = useState('');
+  const [apiKey, setApiKey] = useState(import.meta.env.VITE_GEMINI_API_KEY || '');
   const [showKeyInput, setShowKeyInput] = useState(false);
   const [language, setLanguage] = useState('English');
   const scrollRef = useRef(null);
