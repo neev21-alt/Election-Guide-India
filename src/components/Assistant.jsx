@@ -62,7 +62,7 @@ const Assistant = () => {
     try {
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ 
-        model: "gemini-1.5-flash",
+        model: "gemini-1.5-flash-latest",
         systemInstruction: `You are a neutral, helpful Election Commission guide for India. Respond in ${language}. Your goal is to educate citizens about the election process. Only answer questions related to elections and democracy in India. Keep responses concise and accurate.`
       });
 
